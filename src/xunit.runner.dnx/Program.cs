@@ -36,8 +36,6 @@ namespace Xunit.Runner.Dnx
         {
             args = Enumerable.Repeat(_appEnv.ApplicationName + ".dll", 1).Concat(args).ToArray();
 
-            var originalForegroundColor = Console.ForegroundColor;
-
             try
             {
                 if (args.Length == 0 || args.Any(arg => arg == "-?"))
@@ -109,7 +107,7 @@ namespace Xunit.Runner.Dnx
             }
             finally
             {
-                Console.ForegroundColor = originalForegroundColor;
+                Console.ResetColor();
             }
         }
 
